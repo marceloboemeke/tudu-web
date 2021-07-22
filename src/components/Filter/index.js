@@ -3,7 +3,7 @@ import * as S from './styles';
 
 function Filter({ title, active, onClick }) {
     return (
-        <S.FilterItem className={active}><a href="#" onClick={onClick}>{title}</a></S.FilterItem>
+        <S.FilterItem className={active}><p onClick={onClick}>{title}</p></S.FilterItem>
     );
 }
   

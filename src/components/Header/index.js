@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as S from './styles';
 import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.svg';
-import notificacao from '../../assets/notificacao.svg';
+
+import { Context } from '../../context/AuthContext';
 
 function Header({ lateCount, notificationClick }) {
+    const { handleLogout } = useContext(Context);
+
     return (
         <S.Container>
             <S.LeftSide>
@@ -13,21 +16,11 @@ function Header({ lateCount, notificationClick }) {
             </S.LeftSide>
             <S.RightSide>
                 <ul>
-                    <li><Link to="/">Início</Link></li>
+                    <li><Link to="/tasks">Início</Link></li>
                     <span></span>
-                    <li><Link to="/task">Nova tarefa</Link></li>
+                    <li><Link to="/tasks/new">Nova tarefa</Link></li>
                     <span></span>
-                    <li><Link to="/logout">Sair</Link></li>
-                    {/* <li><Link to="/qrcode">Sincronizar com o app</Link></li> */}
-                    {/* {
-                        (lateCount && lateCount > 0 && notificationClick) ?
-                        <><span></span>
-                        <li><a href="#" onClick={notificationClick}><img src={notificacao} alt="Notificações" />
-                            {lateCount && lateCount > 0 ? <span>{lateCount}</span> : '' }
-                        </a></li></>
-                        :
-                        null
-                    } */}
+                    <li><p onClick={handleLogout}>Sair</p></li>
                 </ul>
             </S.RightSide>
         </S.Container>

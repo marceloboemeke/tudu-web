@@ -14,13 +14,12 @@ import check_off from '../../assets/check_off.svg';
 import Header from '../../components/Header';
 
 function Task({ match }) {
-    const [id, setID] = useState();
+    // const [id, setID] = useState();
     const [done, setDone] = useState(false);
     const [title, setTitle] = useState("");
     const [description, setDesc] = useState("");
     const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
     const [time, setTime] = useState(format(new Date(), 'HH:mm'));
-    const [macaddress, setMacaddress] = useState("11:11:11:11:11:11");
     const [redirect, setRedirect] = useState(false);
 
     const [isLoadedTask, setIsLoadedTask] = useState(false);
@@ -73,7 +72,6 @@ function Task({ match }) {
 
         if (isLoadedTask && loadedTaskExists) {
             await api.put(`/task/${match.params.id}`, {
-                macaddress,
                 title,
                 description,
                 when: `${date}T${time}:00.000`,
@@ -92,7 +90,6 @@ function Task({ match }) {
             });
         } else {
             await api.post('/task', {
-                macaddress,
                 title,
                 description,
                 when: `${date}T${time}:00.000`,
@@ -119,7 +116,7 @@ function Task({ match }) {
 
 	return (
 		<S.Container>
-            {redirect && <Redirect to="/" /> }
+            {redirect ? <Redirect to="/tasks" /> : null }
 			<Header />
 			<S.Title>{`${(!isLoadedTask || (isLoadedTask && loadedTaskExists)) ? (isLoadedTask ? 'Editar tarefa' : 'Nova tarefa') : 'Tarefa não encontrada.'}`}</S.Title>
                 <S.FormContainer className={`${!isLoadedTask || (isLoadedTask && loadedTaskExists) ? '' : 'hidden'}`}>
@@ -137,6 +134,8 @@ function Task({ match }) {
                             <label htmlFor="titulo_tarefa">Título</label>
                             <input type="text" name="titulo" id="titulo_tarefa" placeholder="Título da tarefa" onChange={e => setTitle(e.target.value)} value={title} />
                         </S.Input>
+
+                        {/* <Input label="Título" type="text" name="titulo" id="titulo_tarefa" placeholder="Título da tarefa" onChange={e => setTitle(e.target.value)} value={title}></Input> */}
                         <S.Input>
                             <label htmlFor="desc_tarefa">Descrição</label>
                             <textarea name="descricao" id="desc_tarefa" placeholder="Descrição da tarefa" onChange={e => setDesc(e.target.value)} value={description}></textarea>

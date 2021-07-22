@@ -39,7 +39,7 @@ export const RightSide = styled.div`
         justify-content: flex-end;
     }
 
-    ul li a {
+    ul li p, ul li a {
         display: inline-block;
         padding: 0 10px;
         text-align: center;
@@ -52,24 +52,24 @@ export const RightSide = styled.div`
         transition: color 0.2s;
         font-weight: normal;
         position: relative;
-        
+        cursor: pointer;
 
         &:hover {
             color: #9B392D;
         }
     }
 
-    ul li:last-child a {
+    ul li:last-child p, ul li:last-child a {
         margin-right: 0;
     }
 
-    ul li a img {
+    ul li p img, ul li a img {
         height: 30px;
         align-self: center;
         display: flex;
     }
 
-    ul li a span {
+    ul li p span, ul li a span {
         width: 20px;
         height: 20px;
         background-color: #0b3954;

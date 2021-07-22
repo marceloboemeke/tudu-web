@@ -20,7 +20,7 @@ function TaskCard({ title, description, when, done, taskID, deleteFn, onDone }) 
         let doneStatus = !status;
         await api.put(`/task/${taskID}/${doneStatus}`)
         .then((response) => {
-            if (response.status == 200) {
+            if (response.status === 200) {
                 setStatus(doneStatus);
                 onDone();
             }
@@ -31,7 +31,7 @@ function TaskCard({ title, description, when, done, taskID, deleteFn, onDone }) 
         <S.Container className={`${(new Date(when) <= Date.now() && status === false) ? 'late_task' : ''} ${status === true ? 'done_task' : ''}`}>
             <div className="opts_card">
                 <img className="check_card" src={status ? check_on : check_off} alt={status ? "Concluída" : "Não concluída"} onClick={() => setDone()} />
-                <Link to={`/task/${taskID}`}><img src={edit} className="edit_card" alt="Edit" /></Link>
+                <Link to={`/tasks/${taskID}`}><img src={edit} className="edit_card" alt="Edit" /></Link>
                 <img src={trash} className="delete_card" alt="Delete" onClick={deleteFn} />
             </div>
             <div className="txt_content_card">

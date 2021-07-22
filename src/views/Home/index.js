@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import * as S from './styles';
 import Swal from 'sweetalert2';
 
@@ -7,7 +7,7 @@ import api from '../../services/api';
 
 //Our components
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+// import Footer from '../../components/Footer';
 import Filter from '../../components/Filter';
 import TaskCard from '../../components/TaskCard';
 
@@ -17,7 +17,7 @@ function Home() {
 	const [lateCount, setLateCount] = useState();
 
 	async function loadTasks() {
-		await api.get(`/task/filter/${activeFilter}/11:11:11:11:11:11`)
+		await api.get(`/task/filter/${activeFilter}`)
 		.then(response => {
 			setTasks(response.data);
 			getLateTasks();
@@ -25,7 +25,7 @@ function Home() {
 	}
 
 	async function getLateTasks() {
-		await api.get(`/task/filter/late/11:11:11:11:11:11`)
+		await api.get(`/task/filter/late`)
 		.then(response => {
 			setLateCount(response.data.length);
 		});
@@ -48,7 +48,7 @@ function Home() {
 			if (!!result) {
 				await api.delete(`/task/${id}`)
 				.then((response) => {
-					if (response.status == 200) {
+					if (response.status === 200) {
 						Swal.fire({  
 							title: 'Sucesso!',  
 							type: 'success',  
@@ -80,7 +80,7 @@ function Home() {
 					<Filter title="Ano" active={activeFilter === "year" ? 'active' : ''} onClick={() => setActiveFilter("year")} />
 				</ul>
 			</S.FiltersArea>
-			<S.Title>{activeFilter == 'late' ? "Tarefas Atrasadas" : "Tarefas"}</S.Title>
+			<S.Title>{activeFilter === 'late' ? "Tarefas Atrasadas" : "Tarefas"}</S.Title>
 			<S.Content>
 				{	
 					tasks.map(t => (
