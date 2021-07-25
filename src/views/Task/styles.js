@@ -28,6 +28,18 @@ export const FormContainer = styled.div`
     &.hidden {
         display: none;
     }
+
+    @media (max-width: 1700px) {
+        width: 40vw;
+    }
+
+    @media (max-width: 1200px) {
+        width: 60vw;
+    }
+
+    @media (max-width: 900px) {
+        width: 90vw;
+    }
 `;
 
 export const Form = styled.div`
@@ -120,6 +132,11 @@ export const Input = styled.div`
         input {
             font-size: 14pt;
         }
+
+        @media (max-width: 600px) {
+            width: 100%;
+            display: block;
+        }
     }
 
     input::-webkit-calendar-picker-indicator {
@@ -152,6 +169,10 @@ export const InputContainer = styled.div`
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
     }
 `;
 

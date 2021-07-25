@@ -44,6 +44,18 @@ export const Content = styled.div`
     justify-content: center;
     box-sizing: border-box;
     position: relative;
+
+    @media (max-width: 1700px) {
+        width: 40vw;
+    }
+
+    @media (max-width: 1200px) {
+        width: 60vw;
+    }
+
+    @media (max-width: 900px) {
+        width: 90vw;
+    }
 `;
 
 export const GridContainer = styled.div`
@@ -53,6 +65,18 @@ export const GridContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 1700px) {
+        width: 40vw;
+    }
+
+    @media (max-width: 1200px) {
+        width: 60vw;
+    }
+
+    @media (max-width: 900px) {
+        width: 90vw;
+    }
 `;
 
 export const Half = styled.div`

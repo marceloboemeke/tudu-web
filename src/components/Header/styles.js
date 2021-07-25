@@ -26,6 +26,18 @@ export const RightSide = styled.div`
     height: 90px;
     padding-right: 60px;
     display: flex;
+    justify-content: flex-end;
+
+    .menu_bar {
+        height: 90px;
+        display: block;
+        padding: 25px 5px;
+        box-sizing: border-box;
+
+        @media (min-width: 801px) {
+            display: none;
+        }
+    }
 
     ul {
         list-style-type: none;
@@ -37,6 +49,40 @@ export const RightSide = styled.div`
         margin: 0;
         justify-items: self-end;
         justify-content: flex-end;
+
+        &.open {
+            @media (max-width: 800px) {
+                height: calc(100vh - 90px);
+            }
+        }
+
+        @media (max-width: 800px) {
+            position: absolute;
+            top: 90px;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: #f5f5f5;
+            z-index: 10;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            padding: 0;
+            overflow: hidden;
+            transition: height linear 0.2s;
+        }
+    }
+
+    ul li {
+        @media (max-width: 800px) {
+            display: block;
+            width: 100%;
+            height: 90px;
+            text-align: right;
+            box-sizing: border-box;
+            font-size: 17pt;
+            line-height: 90px;
+        }
     }
 
     ul li p, ul li a {
@@ -49,13 +95,29 @@ export const RightSide = styled.div`
         color: #ed6a5a;
         font-family: "Poppins";
         font-size: 14pt;
-        transition: color 0.2s;
+        transition: all 0.2s;
         font-weight: normal;
         position: relative;
         cursor: pointer;
 
         &:hover {
             color: #9B392D;
+
+            @media (max-width: 800px) {
+                color: #fff;
+                background-color: #ed6a5a;
+            }
+        }
+
+        @media (max-width: 800px) {
+            font-size: 20pt !important;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 0 !important;
+            display: block !important;
+            line-height: 90px !important;
+            margin: 0 !important;
         }
     }
 
@@ -92,6 +154,10 @@ export const RightSide = styled.div`
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background-color: #0b3954
+        background-color: #0b3954;
+
+        @media (max-width: 800px) {
+            display: none;
+        }
     }
 `;

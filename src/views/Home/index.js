@@ -7,7 +7,6 @@ import api from '../../services/api';
 
 //Our components
 import Header from '../../components/Header';
-// import Footer from '../../components/Footer';
 import Filter from '../../components/Filter';
 import TaskCard from '../../components/TaskCard';
 
@@ -45,7 +44,7 @@ function Home() {
             confirmButtonColor: '#ed6a5a',
             cancelButtonColor: '#0B3954'
         }).then(async (result) => {
-			if (!!result) {
+			if (result.isConfirmed) {
 				await api.delete(`/task/${id}`)
 				.then((response) => {
 					if (response.status === 200) {
@@ -69,7 +68,7 @@ function Home() {
 	
 	return (
 		<S.Container>
-			<Header lateCount={lateCount} notificationClick={Notification} />
+			<Header />
 			
 			<S.FiltersArea>
 				<ul>

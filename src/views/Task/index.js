@@ -155,7 +155,7 @@ function Task({ match }) {
                         <div className="form_button" id="save_button" onClick={save}>Salvar</div>
                         {
                             (isLoadedTask && loadedTaskExists) ?
-                            <Link to="/" className="form_button">Cancelar</Link>
+                            <Link to="/tasks" className="form_button">Cancelar</Link>
                             :
                             <div className="form_button" onClick={clearForm}>Limpar</div>
                         }

@@ -9,7 +9,7 @@ function FormButton({ type, id, onClick, to, children }) {
         <>
         {
         type === 'link' ?
-        <S.LinkFormButton href={to} className="form_button" {...id ? `id=${id}` : ''}>{children}</S.LinkFormButton>
+        <S.LinkFormButton href={to} className="form_button" id={id}>{children}</S.LinkFormButton>
         :
         <S.FormButton className="form_button" id={id} onClick={onClick}>{children}</S.FormButton>
         }

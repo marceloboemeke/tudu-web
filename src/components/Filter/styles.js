@@ -25,6 +25,31 @@ export const FilterItem = styled.li`
         font-weight: bold;
         position: relative;
         cursor: pointer;
+
+        @media (max-width: 1700px) {
+            font-size: 20pt;
+            margin: 0 30px;
+        }
+
+        @media (max-width: 1200px) {
+            font-size: 18pt;
+            margin: 0 25px;
+        }
+
+        @media (max-width: 900px) {
+            font-size: 16pt;
+            margin: 0 20px;
+        }
+
+        @media (max-width: 600px) {
+            font-size: 12pt;
+            margin: 0 17px;
+        }
+
+        @media (max-width: 400px) {
+            font-size: 10pt;
+            margin: 0 15px;
+        }
     }
 
     &:not(.active) p:hover {

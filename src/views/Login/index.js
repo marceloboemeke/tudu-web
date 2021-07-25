@@ -13,12 +13,18 @@ function Login() {
     const { authenticated, handleLogin } = useContext(Context);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleKeyPress = (event) => {
+        if(event.key === 'Enter'){
+            handleLogin(email, password);
+        }
+    }
 	
 	return (
             <S.Container>
-                <Header />
+                <Header type="unauth_header" />
                 <S.Title>Acesse sua Conta</S.Title>
-                <S.Content>
+                <S.Content onKeyPress={handleKeyPress}>
                     <Input label="E-mail" type="text" name="email" id="email_login" placeholder="Seu E-mail" onChange={e => setEmail(e.target.value)} value={email}></Input>
                     <Input label="Senha" type="password" name="senha" id="senha_login" placeholder="Sua Senha" onChange={e => setPassword(e.target.value)} value={password}></Input>
                     <FormButton id="login_button" onClick={() => handleLogin(email, password)}>Entrar</FormButton>
