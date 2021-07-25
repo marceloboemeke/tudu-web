@@ -19,10 +19,10 @@ function Register() {
             <S.Container>
                 <Header type="unauth_header" />
                 <S.Title>Crie sua conta</S.Title>
-                <S.Content>
-                    <Input label="Nome" type="text" name="name" id="name_login" placeholder="Seu Nome" onChange={e => setName(e.target.value)} value={name}></Input>
-                    <Input label="E-mail" type="text" name="email" id="email_login" placeholder="Seu E-mail" onChange={e => setEmail(e.target.value)} value={email}></Input>
-                    <Input label="Senha" type="password" name="senha" id="senha_login" placeholder="Sua Senha" onChange={e => setPassword(e.target.value)} value={password}></Input>
+                <S.Content className="new_theme">
+                    <Input className="new_theme" label="Nome" type="text" name="name" id="name_login" placeholder="Seu Nome" onChange={e => setName(e.target.value)} value={name}></Input>
+                    <Input className="new_theme" label="E-mail" type="text" name="email" id="email_login" placeholder="Seu E-mail" onChange={e => setEmail(e.target.value)} value={email}></Input>
+                    <Input className="new_theme" label="Senha" type="password" name="senha" id="senha_login" placeholder="Sua Senha" onChange={e => setPassword(e.target.value)} value={password}></Input>
                     <FormButton id="register_button" onClick={() => handleRegister(name, email, password)}>Criar minha conta</FormButton>
                 </S.Content>
                 <S.Row>

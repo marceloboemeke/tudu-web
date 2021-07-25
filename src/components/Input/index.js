@@ -2,9 +2,9 @@ import React from 'react';
 
 import * as S from './styles.js';
 
-function Input({ label, type, name, id, placeholder, onChange, value }) {
+function Input({ label, type, name, id, placeholder, onChange, value, className }) {
     return (
-        <S.Input>
+        <S.Input className={className}>
             <label htmlFor={id}>{label}</label>
             {
                 type === "textarea" ?

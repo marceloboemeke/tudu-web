@@ -5,7 +5,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    flex-flow: wrap;
+    align-items: center;
 `;
 
 export const Title = styled.div`
@@ -22,13 +22,12 @@ export const Title = styled.div`
 `;
 
 export const SmallCaption = styled.a`
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
     text-align: center;
     font-family: "Poppins";
     font-weight: normal;
     font-size: 12pt;
-    /* padding: 10px; */
     color: #ed6a5a;
 
 `;
@@ -45,6 +44,30 @@ export const Content = styled.div`
     box-sizing: border-box;
     position: relative;
 
+    &.new_theme {
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 0 40px;
+        box-shadow: none;
+
+        .form_button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ed6a5a;
+            font-family: "Poppins";
+            font-weight: lighter;
+            color: #fff;
+            width: 90%;
+            text-align: center;
+            transition: all linear 0.1s;
+
+            &:hover {
+                background-color: #c15346;
+            }
+        }
+    }
+
     @media (max-width: 1700px) {
         width: 40vw;
     }
@@ -59,12 +82,25 @@ export const Content = styled.div`
 `;
 
 export const GridContainer = styled.div`
-    width: 25vw;
+    width: 90%;
     height: auto;
-    padding: 10px;
+    padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+`;
+
+export const Half = styled.div`
+    width: auto;
+`;
+
+export const Row = styled.div`
+    width: 25vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 1700px) {
         width: 40vw;
@@ -77,17 +113,4 @@ export const GridContainer = styled.div`
     @media (max-width: 900px) {
         width: 90vw;
     }
-`;
-
-export const Half = styled.div`
-    width: 50%;
-`;
-
-export const Row = styled.div`
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 `;

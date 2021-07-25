@@ -120,7 +120,7 @@ function Task({ match }) {
 			<Header />
 			<S.Title>{`${(!isLoadedTask || (isLoadedTask && loadedTaskExists)) ? (isLoadedTask ? 'Editar tarefa' : 'Nova tarefa') : 'Tarefa não encontrada.'}`}</S.Title>
                 <S.FormContainer className={`${!isLoadedTask || (isLoadedTask && loadedTaskExists) ? '' : 'hidden'}`}>
-                    <S.Form>
+                    <S.Form className="new_theme">
                         {
                             (isLoadedTask && loadedTaskExists) ?
                             <S.DoneButtonForm onClick={() => setDone(!done)}>
@@ -130,28 +130,28 @@ function Task({ match }) {
                             :
                             null
                         }
-                        <S.Input>
+                        <S.Input className="new_theme">
                             <label htmlFor="titulo_tarefa">Título</label>
                             <input type="text" name="titulo" id="titulo_tarefa" placeholder="Título da tarefa" onChange={e => setTitle(e.target.value)} value={title} />
                         </S.Input>
 
                         {/* <Input label="Título" type="text" name="titulo" id="titulo_tarefa" placeholder="Título da tarefa" onChange={e => setTitle(e.target.value)} value={title}></Input> */}
-                        <S.Input>
+                        <S.Input className="new_theme">
                             <label htmlFor="desc_tarefa">Descrição</label>
                             <textarea name="descricao" id="desc_tarefa" placeholder="Descrição da tarefa" onChange={e => setDesc(e.target.value)} value={description}></textarea>
                         </S.Input>
                         <S.InputContainer>
-                            <S.Input className="half_input" imgURL={calendar}>
+                            <S.Input className="half_input new_theme" imgURL={calendar}>
                                 <label htmlFor="data_tarefa">Data</label>
                                 <input type="date" name="data" id="data_tarefa" placeholder="01/01/2022" onChange={e => setDate(e.target.value)} value={date} />
                             </S.Input>
-                            <S.Input className="half_input" imgURL={clock}>
+                            <S.Input className="half_input new_theme" imgURL={clock}>
                                 <label htmlFor="hora_tarefa">Hora</label>
                                 <input type="time" name="hora" id="hora_tarefa" placeholder="00:00" onChange={e => setTime(e.target.value)} value={time} />
                             </S.Input>
                         </S.InputContainer>
                     </S.Form>
-                    <S.ButtonsContainer>
+                    <S.ButtonsContainer className="new_theme">
                         <div className="form_button" id="save_button" onClick={save}>Salvar</div>
                         {
                             (isLoadedTask && loadedTaskExists) ?

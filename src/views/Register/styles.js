@@ -45,6 +45,30 @@ export const Content = styled.div`
     box-sizing: border-box;
     position: relative;
 
+    &.new_theme {
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 0 40px;
+        box-shadow: none;
+
+        .form_button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ed6a5a;
+            font-family: "Poppins";
+            font-weight: lighter;
+            color: #fff;
+            width: 90%;
+            text-align: center;
+            transition: all linear 0.1s;
+
+            &:hover {
+                background-color: #c15346;
+            }
+        }
+    }
+
     @media (max-width: 1700px) {
         width: 40vw;
     }

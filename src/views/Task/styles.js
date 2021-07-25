@@ -53,6 +53,12 @@ export const Form = styled.div`
     justify-content: center;
     box-sizing: border-box;
     position: relative;
+
+    &.new_theme {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0 40px;
+    }
 `;
 
 export const DoneButtonForm = styled.div`
@@ -95,6 +101,47 @@ export const Input = styled.div`
     width: 90%;
     box-sizing: border-box;
     margin-bottom: 30px;
+
+    &.new_theme {
+        label, input, textarea {
+            display: block;
+            box-sizing: border-box;
+            font-size: 12pt;
+        }
+
+        input, textarea {
+            padding: 10px;
+            width: 100%;
+            background-color: #FEFCFD;
+            color: #666;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        textarea {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            resize: none;
+            height: 100px;
+        }
+
+        &.half_input {
+            width: 49%;
+
+            input {
+                font-size: 12pt;
+            }
+
+            @media (max-width: 600px) {
+                width: 100%;
+                display: block;
+            }
+        }
+
+    }
 
     * {
         font-family: "Poppins";
@@ -183,6 +230,29 @@ export const ButtonsContainer = styled.div`
     justify-content: center;
     padding-top: 10px;
 
+    &.new_theme {
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 0 40px;
+
+        .form_button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ed6a5a;
+            font-family: "Poppins";
+            font-weight: lighter;
+            color: #fff;
+            width: 90%;
+            text-align: center;
+            transition: all linear 0.1s;
+
+            &:hover {
+                background-color: #c15346;
+            }
+        }
+    }
+
     .form_button {
         padding: 5px 20px;
         border: 2px solid #ed6a5a;
@@ -201,6 +271,29 @@ export const ButtonsContainer = styled.div`
         &:hover {
             background-color: #ed6a5a;
             color: #ffffff;
+        }
+    }
+
+    .form_button.new_theme {
+        padding: 10px 40px;
+        border: none;
+        border-radius: 10px;
+        display: inline-block;
+        background-color: #ed6a5a;
+        font-family: "Poppins";
+        font-weight: lighter;
+        font-size: 14pt;
+        color: #fff;
+        margin: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        width: 90%;
+        box-sizing: border-box;
+        text-align: center;
+        transition: all linear 0.1s;
+
+        &:hover {
+            background-color: #bb5043;
         }
     }
 `;

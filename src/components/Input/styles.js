@@ -5,6 +5,47 @@ export const Input = styled.div`
     box-sizing: border-box;
     margin-bottom: 30px;
 
+    &.new_theme {
+        label, input, textarea {
+            display: block;
+            box-sizing: border-box;
+            font-size: 12pt;
+        }
+
+        input, textarea {
+            padding: 10px;
+            width: 100%;
+            background-color: #FEFCFD;
+            color: #666;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        textarea {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            resize: none;
+            height: 100px;
+        }
+
+        &.half_input {
+            width: 49%;
+
+            input {
+                font-size: 12pt;
+            }
+
+            @media (max-width: 600px) {
+                width: 100%;
+                display: block;
+            }
+        }
+
+    }
+
     * {
         font-family: "Poppins";
         color: #ed6a5a;
