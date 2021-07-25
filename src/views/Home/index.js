@@ -39,6 +39,8 @@ function Home() {
             title: 'Excluir tarefa',  
             type: 'question',  
             text: 'Deseja realmente excluir essa tarefa?',
+			confirmButtonText: 'Sim, excluir',
+            cancelButtonText: 'Cancelar',
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonColor: '#ed6a5a',

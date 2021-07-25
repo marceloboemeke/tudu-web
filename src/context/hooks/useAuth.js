@@ -20,6 +20,15 @@ export default function useAuth() {
     },[]);
 
     async function handleLogin(email, password) {
+        if (!email || !password) {
+            return Swal.fire({  
+                title: 'Ops!',  
+                type: 'warning',  
+                text: "Preencha E-mail e Senha para acessar!",
+                confirmButtonColor: '#ed6a5a'
+            });
+        }
+
         await api.post('/auth', { 'email': email, 'password': password })
         .then(response => {
             const token = response.data.token;
@@ -28,18 +37,48 @@ export default function useAuth() {
             setAuthenticated(true);
             history.push('/tasks');
         }).catch(error => {
-            setAuthenticated(false);
+            Swal.fire({  
+                title: 'Ops!',  
+                type: 'error',  
+                text: "E-mail ou Senha incorretos. Verifique e tente novamente!",
+                confirmButtonColor: '#ed6a5a'
+            }).then(() => {
+                setAuthenticated(false);
+            });
         });
     }
 
     async function handleLogout() {
-        setAuthenticated(false);
-        localStorage.removeItem('@tuudu-web-app/authtoken');
-        api.defaults.headers.Authorization = undefined;
-        history.push('/');
+        Swal.fire({  
+            title: 'Sair da conta',  
+            type: 'question',  
+            text: "Deseja realmente sair da sua conta?",
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: 'Sair',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#ed6a5a',
+            cancelButtonColor: '#0B3954'
+        }).then((result) => {
+			if (result.isConfirmed) {
+                setAuthenticated(false);
+                localStorage.removeItem('@tuudu-web-app/authtoken');
+                api.defaults.headers.Authorization = undefined;
+                history.push('/');
+            }
+        });
     }
 
     async function handleRegister(name, email, password) {
+        if (!name || !email || !password) {
+            return Swal.fire({  
+                title: 'Ops!',  
+                type: 'warning',  
+                text: "Preencha Nome, E-mail e Senha para se registrar!",
+                confirmButtonColor: '#ed6a5a'
+            });
+        }
+
         await api.post('/user', { 'name': name, 'email': email, 'password': password })
         .then(response => {
             const token = response.data.token;
